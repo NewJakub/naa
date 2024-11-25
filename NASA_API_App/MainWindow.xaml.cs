@@ -20,7 +20,7 @@ namespace NASA_API_App
     public partial class MainWindow : Window
     {
         public ObservableCollection<Asteroids> AsteroidList{ get; set; }
-        public string stringView = "DjFVSKSwPjyR6EuA3i9YAVNVDHtgaqcQA3qw0exi";
+        public StringViewModel stringView = new StringViewModel();
         private readonly APIHandler NasaApiHandler;
         public MainWindow()
         {
@@ -29,7 +29,7 @@ namespace NASA_API_App
             AsteroidList = new ObservableCollection<Asteroids>();
             NasaApiHandler = new APIHandler();
 
-            CallData(AsteroidList, stringView);
+            CallData(AsteroidList);
             
 
             
@@ -38,10 +38,10 @@ namespace NASA_API_App
             
         }
 
-        public static async void CallData(ObservableCollection<Asteroids> astList, string stringView)
+        public static async void CallData(ObservableCollection<Asteroids> astList)
         {
             APIHandler NasaApiHandler = new APIHandler();
-            var data = await NasaApiHandler.GetAsteroidsAsync(DateTime.UtcNow.ToString("yyyy-MM-dd"), DateTime.UtcNow.AddDays(2).ToString("yyyy-MM-dd"), stringView);
+            var data = await NasaApiHandler.GetAsteroidsAsync(DateTime.UtcNow.ToString("yyyy-MM-dd"), DateTime.UtcNow.AddDays(2).ToString("yyyy-MM-dd"), "PlgKdthvA7rmL9RpBz2i91Y6Nfy9A5LqtDoh3eKt");
             
             foreach (Asteroids asteroid in data)
             {
@@ -58,7 +58,7 @@ namespace NASA_API_App
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
         {
             AsteroidList.Clear();
-            CallData(AsteroidList, stringView);
+            CallData(AsteroidList);
         }
 
         private void YourListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

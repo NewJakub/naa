@@ -40,7 +40,8 @@
             <TextBox Grid.Row="3"
                      Grid.Column="1"
                      Grid.ColumnSpan="3"
-                     Text="{Binding TextFieldContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding TextFieldContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Name="txtbox"/>
             <Label Grid.Row="1"
                      Grid.Column="2"
                      Grid.ColumnSpan="2"
