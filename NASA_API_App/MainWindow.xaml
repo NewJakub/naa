@@ -13,6 +13,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -23,33 +24,45 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="4"> button </Button>
-        
-        <ScrollViewer Grid.ColumnSpan="5"
-                      Grid.RowSpan="7"
-                      Grid.Row="1">
+        <Button Click="Button_Click_1"
+                Background="White"
+                BorderThickness="0"
+                Grid.Column="5">
             <StackPanel>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-
-
-
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                <Button Height="50"></Button>
-                
+                <Image Source="Images/options.png"/>
             </StackPanel>
-        </ScrollViewer>
+        </Button>
+        <Button Background="White"
+                BorderThickness="0"
+                Click="Refresh_Button_Click">
+            <StackPanel>
+                <Image Source="Images/refresh.png"/>
+            </StackPanel>
+        </Button>
+
+        <ListBox Margin="20" Grid.Row="1" Grid.RowSpan="10" Grid.ColumnSpan="6" Name="YourListBox" SelectionChanged="YourListBox_SelectionChanged" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="AliceBlue">
+                        <Label Content="{Binding Name}"/> 
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ContentControl x:Name="MenuContainer"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="6"
+                Grid.RowSpan="11"/>
+        <ContentControl x:Name="DetailsContentControl"
+        Grid.Row="0"
+        Grid.Column="0"
+        Grid.ColumnSpan="6"
+        Grid.RowSpan="11"/>
     </Grid>
 </Window>

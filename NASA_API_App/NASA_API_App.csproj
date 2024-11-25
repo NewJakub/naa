@@ -8,4 +8,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\close.png" />
+    <None Remove="Images\options.png" />
+    <None Remove="Images\refresh.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\options.png" />
+    <Resource Include="Images\refresh.png" />
+  </ItemGroup>
+
 </Project>
