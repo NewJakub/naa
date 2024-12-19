@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Automation.Provider;
@@ -19,9 +20,11 @@ namespace NASA_API_App
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public ObservableCollection<Asteroids> AsteroidList{ get; set; }
         public StringViewModel stringView = new StringViewModel();
         private readonly APIHandler NasaApiHandler;
+        public static string apiKey = "PlgKdthvA7rmL9RpBz2i91Y6Nfy9A5LqtDoh3eKt";
         public MainWindow()
         {
             InitializeComponent();
@@ -35,13 +38,14 @@ namespace NASA_API_App
             
             YourListBox.ItemsSource = AsteroidList;
             DataContext = stringView;
+            //fynnykid.Text = settings.apiKey;
             
         }
 
         public static async void CallData(ObservableCollection<Asteroids> astList)
         {
             APIHandler NasaApiHandler = new APIHandler();
-            var data = await NasaApiHandler.GetAsteroidsAsync(DateTime.UtcNow.ToString("yyyy-MM-dd"), DateTime.UtcNow.AddDays(2).ToString("yyyy-MM-dd"), "PlgKdthvA7rmL9RpBz2i91Y6Nfy9A5LqtDoh3eKt");
+            var data = await NasaApiHandler.GetAsteroidsAsync(DateTime.UtcNow.ToString("yyyy-MM-dd"), DateTime.UtcNow.AddDays(2).ToString("yyyy-MM-dd"), apiKey);
             
             foreach (Asteroids asteroid in data)
             {
@@ -51,8 +55,10 @@ namespace NASA_API_App
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Settings settings = new Settings();
-            MenuContainer.Content = settings;
+            Settings.Visibility = Visibility.Visible;
+            //MenuContainer.Content = settings;
+
+
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
@@ -82,6 +88,27 @@ namespace NASA_API_App
                 // Display the UserControl
                 DetailsContentControl.Content = detailsControl;
             }
+        }
+
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Settings.Visibility = Visibility.Collapsed;
+            if (txtbox.Text.Length != 40)
+            {
+                APIFAKE.Visibility = Visibility.Visible;
+                txtbox.Text = apiKey;
+            }
+            else { 
+                apiKey = txtbox.Text; 
+            }
+        }
+
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+            APIFAKE.Visibility = Visibility.Collapsed;
+            
         }
     }
 }

@@ -28,7 +28,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-
+        
         <Button Click="Button_Click_1"
                 Background="White"
                 BorderThickness="0"
@@ -54,11 +54,110 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ContentControl x:Name="MenuContainer"
+
+        <Border Width="300"
+                Height="250"
+                Background="Gray"
+                             Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="6"
+                 Grid.RowSpan="11"
+                Visibility="Collapsed"
+                Name="Settings">
+            <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                             Click="Button_Click"
+                              Grid.RowSpan="2">
+
+                        <StackPanel Height="50" Width="50" >
+                            <Image Source="Images/close.png"/>
+                        </StackPanel>
+                    </Button>
+                    <TextBox Grid.Row="3"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="3"
+                 Text="PlgKdthvA7rmL9RpBz2i91Y6Nfy9A5LqtDoh3eKt"
+                 Name="txtbox"
+                 />
+                    <Label Grid.Row="1"
+                 Grid.Column="2"
+                 Grid.ColumnSpan="2"
+                 Content="Nastavení"/>
+                    <Label Grid.Row="3"
+               Content="API KEY:"/>
+                </Grid>
+
+            </Border>
+
+        <Border Width="300"
+                Height="150"
+                Background="Red"
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="6"
-                Grid.RowSpan="11"/>
+                Grid.RowSpan="4"
+                Name="APIFAKE"
+                Visibility="Collapsed">
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Background="Transparent"
+                    BorderThickness="0"
+                     Click="Button_Click3"
+                      Grid.RowSpan="2">
+
+                    <StackPanel Height="40" Width="40" >
+                        <Image Source="Images/close.png"/>
+                    </StackPanel>
+                </Button>
+
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="5"
+                       Grid.RowSpan="3"
+                       HorizontalAlignment="Center"
+                       Content="API je neplatná. Bude použit poslední validní API."
+                       />  
+
+            </Grid>
+
+        </Border>
+
+
         <ContentControl x:Name="DetailsContentControl"
         Grid.Row="0"
         Grid.Column="0"
